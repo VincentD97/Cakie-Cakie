@@ -1,0 +1,129 @@
+html, body {
+padding: 0;
+margin: 0px;
+}
+body {
+font-size: 12px;
+font-family: Verdana;
+line-height: 20px;
+background: #eee;
+}
+body a {
+text-decoration: none; 
+color: #85AB34;
+}
+body a:hover {
+text-decoration: underline;
+color: #C5D848;
+}
+body a:active {
+text-decoration: none;
+color: #FCF49F;
+}
+body a:visited {
+text-decoration: none;
+/* color: #666; */
+}
+.center {
+text-align: center;
+}
+#language {
+    margin-left: 100px;
+}
+.mg {
+font-size: 12px;
+border: solid 2px #666;
+position: relative;
+font-size: 11px;
+margin: 50px;
+}
+.mg .grid {
+background: #f5f5f5;
+border: solid 1px #666;
+position: absolute;
+overflow: hidden;
+}
+.mg .mg_finish {
+background: #f5f5f5 url(img/flag_red.gif) no-repeat center center;
+}
+.mg .me {
+position: absolute;
+top: 0;
+left: 0;
+/*_margin-top: -38px;
+_margin-left: -38px;*/
+z-index: 10;
+}
+.mg .me .inform {
+position: absolute;
+/*top: -25px;*/
+bottom: 20px;
+padding-bottom: 4px;
+left: -5px;
+display: none;
+opacity: 0.75;
+filter: alpha(opacity=75);
+width: 160px;
+font-size: 12px;
+}
+.mg .me .inform p {
+background: #000;
+color: #fff;
+padding: 3px 5px;
+margin: 0;
+float: left;
+}
+.mg .me img {
+border: 0;
+width: 80%;
+height: 80%;
+margin: 10%;
+}
+.mg canvas {
+}
+.mg img.cake_img {
+position: absolute;
+z-index: 5;
+right: 2px;
+bottom: 2px;
+}
+#mg_set {
+margin: 10px 10px 20px 190px;
+}
+#mg_set p {
+margin: 0 0 0 100px;
+padding: 0 0 0 200em;
+}
+#hint {
+margin: 0 0 0 230px;
+}
+#step {
+margin: 0 0 0 197px;
+}
+#step p{
+margin: 20px 0px 0px -10px;
+}
+.info {
+padding: 10px;
+font-size: 14px;
+}
+.info p {
+margin: 0;
+padding: 0;
+font-size: 12px;
+color: gray;
+}
+#foot {
+padding: 10px 20px;
+margin-bottom: 20px;
+background: #fff;
+}
+p {
+padding: 0;
+margin: 0;
+}
+#wrapper {
+margin: 0px;
+padding: 10px 20px 40px 200px;
+background: #fff;
+}

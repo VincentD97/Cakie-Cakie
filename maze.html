@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-CN">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta http-equiv="Content-Language" content="zh-CN" />
+<title>Maze</title>
+<style type="text/css">
+@import url(css/mg.css);
+</style>
+<script type="text/javascript" src="js/jquery.js"></script>
+<script type="text/javascript" src="js/jquery.hotkey.js"></script>
+<script type="text/javascript" src="js/mg.js"></script>
+<script type="text/javascript" src="js/msg.js"></script>
+</head>
+
+<body id="wrapper">
+	<input id="language" type="button" value=" 中文 " onclick="switch_language();" />
+	<div id="mg" class="mg"></div>
+	<div id="mg_set">
+		<text id="set_h">Height: </text><input type="text" id="mg_height" value="20" size="4" maxlength="3" />
+		<text id="set_w">Width: </text><input type="text" id="mg_width" value="20" size="4" maxlength="3" />
+		<input id="create" type="button" value=" Create " onclick="new_mg();" />
+		<text id="create_error" style="visibility:hidden;">Both height and width must be ≥ 3 !</text>
+	</div>
+	<div id="hint">
+		<input id="show_h" type="button" value=" Show Hint " onclick="show_hint();" />
+		<input id="hide_h" type="button" value=" Hide Hint " onclick="hide_hint();" />
+	</div>
+	<div id="step">
+		<input id="show_s" type="button" value=" Show # of Steps " onclick="show_step();" />
+		<input id="hide_s" type="button" value=" Hide # of Steps " onclick="hide_step();" />
+		<p>    </p>
+		<text id="step_msg_0" style="visibility:hidden;">Minimal Number of Steps to Exit : </text>
+			<text id="step_msg" style="visibility:hidden;"></text>
+		
+	</div>
+</body>
+
+<script type="text/javascript">
+function new_mg() {
+	var w = parseInt(document.getElementById("mg_width").value) || 20,
+		h = parseInt(document.getElementById("mg_height").value) || 20;
+	if (w < 3 || h < 3)
+		mg.update_create_error();
+	else {
+		mg.set({width: w, height: h}).create().show();
+		document.getElementById("mg_width").value = w;
+		document.getElementById("mg_height").value = h;
+	}
+}
+
+var mg = new MG("mg");
+new_mg();
+
+function show_hint() {
+	mg.show_hint( false );
+}
+function hide_hint() {
+	mg.hide_hint( false );
+}
+function show_step() {
+	mg.show_hint( true );
+}
+function hide_step() {
+	mg.hide_hint( true );
+}
+function switch_language() {
+	let cur = document.getElementById("language").value;
+	if (cur == " 中文 ") {
+		document.getElementById("language").value = " English ";
+		document.getElementById("set_h").innerHTML = " 高 度 ： ";
+		document.getElementById("set_w").innerHTML = " 宽 度 ： ";
+		document.getElementById("create").value = " 创建 ";
+		document.getElementById("create_error").innerHTML = " 高度和宽度必须都 ≥ 3 !";
+		document.getElementById("show_h").value = " 显示 提示 ";
+		document.getElementById("hide_h").value = " 隐藏 提示 ";
+		document.getElementById("show_s").value = " 显示 到终点步数 ";
+		document.getElementById("hide_s").value = " 隐藏 到终点步数 ";
+		console.log(document.getElementById("step_msg").innerHTML);
+		document.getElementById("step_msg_0").innerHTML = "到达终点需要的最少步数：";
+		mg.me.switch_language(true);
+	}
+	else {
+		document.getElementById("language").value = " 中文 ";
+		document.getElementById("set_h").innerHTML = "Height: ";
+		document.getElementById("set_w").innerHTML = "Weight: ";
+		document.getElementById("create").value = " Create ";
+		document.getElementById("create_error").innerHTML = "Both height and width must be ≥ 3 !";
+		document.getElementById("show_h").value = " Show Hint ";
+		document.getElementById("hide_h").value = " Hide Hint ";
+		document.getElementById("show_s").value = " Show # of Steps ";
+		document.getElementById("hide_s").value = " Hide # of Steps ";
+		document.getElementById("step_msg_0").innerHTML = "Minimal Number of Steps to Exit :";
+		console.log(document.getElementById("step_msg").innerHTML);
+		mg.me.switch_language(false);
+	}
+}
+
+</script>
+
+<script type="text/javascript">
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-307069-13']);
+	_gaq.push(['_trackPageview']);
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
